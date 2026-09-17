@@ -1,24 +1,34 @@
 import Greetings from "./component/props/Greetings";
-
+import { useState } from "react";
 
 function App() {
+  const [title, setTitle] = useState("welcome to my website");
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar */}
       <nav className="bg-white shadow-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <h1 className="text-xl font-bold text-blue-600">
-            <h1>My Website</h1>
+            {title}
           </h1>
 
+        
+
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-gray-700 hover:text-blue-600">
+            <a onClick={()=>{
+              if(title === "Bukan Home") {
+                setTitle("Home");
+              } else {
+                setTitle("Bukan Home");
+              }
+              }} href="#" className="text-gray-700 hover:text-blue-600">
               Home
             </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600">
+            <a onClick={()=>{setTitle("About You")}} href="#" className="text-gray-700 hover:text-blue-600">
               About
             </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600">
+            <a onClick={()=>{setTitle("Contact")}} href="#" className="text-gray-700 hover:text-blue-600">
               Contact
             </a>
           </div>
@@ -30,6 +40,7 @@ function App() {
         <section className="mx-auto max-w-6xl px-6 py-24 text-center">
           <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
             <Greetings />
+            <Greetings/>
             <Greetings/>
           </h2>
 
