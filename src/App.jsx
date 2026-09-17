@@ -3,6 +3,13 @@ import { useState } from "react";
 
 function App() {
   const [title, setTitle] = useState("welcome to my website");
+  const mahasiswa = [
+    {
+      nama: "Austin Rolos",
+      umur: 20,
+      jurusan: "Informatika",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -39,11 +46,16 @@ function App() {
       <main>
         <section className="mx-auto max-w-6xl px-6 py-24 text-center">
           <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
-            <Greetings />
-            <Greetings/>
-            <Greetings/>
+            {mahasiswa.map ((mhs) => (
+              <Greetings
+                key={mhs.nama}
+                nama={mhs.nama}
+                umur={mhs.umur}
+                jurusan={mhs.jurusan}
+              />
+            ))} <br />
           </h2>
-
+            
           <p className="mx-auto mt-4 max-w-2xl text-gray-600">
             A simple website built with React JS and Tailwind CSS.
             No additional libraries are required.
